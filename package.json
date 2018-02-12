@@ -1,0 +1,15 @@
+{
+	"name": "outdoormonitor",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"dependencies": {
+		"onoff": "^1.0.3",
+		"node-dht-sensor": "^0.0.8"
+	},
+	"author": "",
+	"license": "ISC"
+}

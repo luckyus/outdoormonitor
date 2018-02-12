@@ -1,0 +1,44 @@
+{
+	"pi": {
+		"name": "Outdoor Monitor",
+		"description": "Hop Yat Church's Outdoor Monitor",
+		"port": 3000,
+		"sensors": {
+			"temperature": {
+				"name": "Temperature Sensor",
+				"description": "An ambient temperature sensor.",
+				"unit": "celsius",
+				"value": 0,
+				"gpio": 12
+			},
+			"humidity": {
+				"name": "Humidity Sensor",
+				"description": "An ambient humidity sensor.",
+				"unit": "%",
+				"value": 0,
+				"gpio": 12
+			},
+			"fans": {
+				"1": {},
+				"2": {},
+				"3": {},
+				"4": {}
+			}
+		},
+		"actuators": {
+			"LCD": {},
+			"leds": {
+				"1": {
+					"name": "LED 1",
+					"value": false,
+					"gpio": 4
+				},
+				"2": {
+					"name": "LED 2",
+					"value": false,
+					"gpio": 9
+				}
+			}
+		}
+	}
+}
