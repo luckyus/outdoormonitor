@@ -3,6 +3,12 @@ http.createServer((req, res) => {
 	res.writeHeader(200, { 'Content-Type': 'text/plain' });
 	res.end('Hello World!');
 }).listen(3000);
+
+process.on('SIGINT', () => {
+	console.log('exit!');
+	process.exit();
+});
+
 console.log('Church Monitor!');
 
 /*
