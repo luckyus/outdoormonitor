@@ -1,3 +1,6 @@
+var Gpio = require('onoff').Gpio;
+var sensor = new Gpio(17, 'in', 'both');
+
 var http = require('http');
 http.createServer((req, res) => {
 	res.writeHeader(200, { 'Content-Type': 'text/plain' });
