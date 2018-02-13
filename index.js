@@ -1,3 +1,11 @@
+var http = require('http');
+http.createServer((req, res) => {
+	res.writeHeader(200, { 'Content-Type': 'text/plain' });
+	res.end('Hello World!');
+}).listen(3000);
+console.log('Church Monitor!');
+
+/*
 var sensorLib = require('node-dht-sensor');
 
 sensorLib.initialize(22, 12); 
@@ -15,4 +23,4 @@ process.on('SIGINT', function () {
 	console.log('Exit...');
 	process.exit();
 });
-
+*/
