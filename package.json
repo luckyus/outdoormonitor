@@ -10,6 +10,6 @@
 		"onoff": "^1.0.3",
 		"node-dht-sensor": "^0.0.8"
 	},
-	"author": "",
+	"author": "Brian Leung",
 	"license": "ISC"
 }

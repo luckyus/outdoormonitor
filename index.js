@@ -1,3 +1,11 @@
+var httpServer = require('./servers/http');
+var resources = require('./resources/model');
+
+var server = httpServer.listen(resources.pi.port, () => {
+	console.info('Hop Yat Church Outdoor Display at %s', resources.pi.port);
+});
+
+/*
 var Gpio = require('onoff').Gpio;
 var sensor = new Gpio(17, 'in', 'both');
 
@@ -13,6 +21,7 @@ process.on('SIGINT', () => {
 });
 
 console.log('Church Monitor!');
+*/
 
 /*
 var sensorLib = require('node-dht-sensor');
