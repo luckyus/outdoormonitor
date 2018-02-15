@@ -1,5 +1,5 @@
 var resources = require('./../../resources/model');
-// var utils = require('./../../utils/utils.js');
+var utils = require('./../../utils/utils.js');
 
 var interval, sensor;
 var model = resources.pi.sensors;
