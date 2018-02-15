@@ -11,7 +11,7 @@ app.use(cors());
 app.use('/api/v1/actuators', actuatorsRoutes);
 app.use('/api/v1/sensors', sensorRoutes);
 
-app.get('/api', (req, res) => {
+app.get('/api/v1', (req, res) => {
 	res.send('Hop Yat Church Outdoor Display Monitor');
 });
 
