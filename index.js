@@ -1,9 +1,14 @@
 var httpServer = require('./servers/http');
 var resources = require('./resources/model');
+var dhtPlugin = require('./plugins/internal/DHT22SensorPlugin');
+
+dhtPlugin.start({ 'simulate': true, 'frequeycy': 2000 });
 
 var server = httpServer.listen(resources.pi.port, () => {
 	console.info('Hop Yat Church Outdoor Display at %s', resources.pi.port);
 });
+
+
 
 /*
 var Gpio = require('onoff').Gpio;
