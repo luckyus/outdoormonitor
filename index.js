@@ -15,7 +15,7 @@ app.get('/api/v1', (req, res) => {
 	res.send('Hop Yat Church Outdoor Display Monitor');
 });
 
-dhtPlugin.start({ 'simulate': true, 'frequeycy': 2000 });
+dhtPlugin.start({ 'simulate': true, 'frequency': 2000 });
 
 var server = app.listen(resources.pi.port, () => {
 	console.info('Hop Yat Church Outdoor Display at %s', resources.pi.port);

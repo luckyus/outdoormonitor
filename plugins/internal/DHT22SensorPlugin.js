@@ -10,7 +10,7 @@ exports.start = function (params) {
 	localParams = params;
 	if (params.simulate) {
 
-		console.log('simulate: %s, frequency: ' + localParams.frequency + '...', localParams.simulate);
+		console.log('simulate: %s, frequency: %d...', localParams.simulate, localParams.frequency);
 
 		// simulate();
 	} else {
