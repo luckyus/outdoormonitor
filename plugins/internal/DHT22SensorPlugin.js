@@ -8,6 +8,10 @@ var localParams = { 'simulate': false, 'frequency': 5000 };
 
 exports.start = function (params) {
 	localParams = params;
+
+	// debug
+	console.log('simulate: %s...', localParams.simulate);
+
 	if (params.simulate) {
 		simulate();
 	} else {
