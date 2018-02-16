@@ -17,7 +17,7 @@ app.get('/api/v1', (req, res) => {
 
 dhtPlugin.start({ 'simulate': true, 'frequeycy': 2000 });
 
-var server = httpServer.listen(resources.pi.port, () => {
+var server = app.listen(resources.pi.port, () => {
 	console.info('Hop Yat Church Outdoor Display at %s', resources.pi.port);
 });
 
