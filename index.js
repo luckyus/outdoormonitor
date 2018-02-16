@@ -1,7 +1,7 @@
 var express = require('express');
-var actuatorsRoutes = require('./../routes/actuators');
-var sensorRoutes = require('./../routes/sensors');
-var resources = require('./../resources/model');
+var actuatorsRoutes = require('./routes/actuators');
+var sensorRoutes = require('./routes/sensors');
+var resources = require('./resources/model');
 var dhtPlugin = require('./plugins/internal/DHT22SensorPlugin');
 var cors = require('cors');
 
