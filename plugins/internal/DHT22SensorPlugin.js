@@ -6,7 +6,7 @@ var model = resources.pi.sensors;
 var pluginName = 'Temperature & Humidity';
 var localParams = { 'simulate': false, 'frequency': 5000 };
 
-exports.start = function (params) {hap
+exports.start = function (params) {
 	localParams = params;
 	if (params.simulate) {
 		simulate();
