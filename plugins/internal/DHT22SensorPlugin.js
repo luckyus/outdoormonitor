@@ -9,7 +9,10 @@ var localParams = { 'simulate': false, 'frequency': 5000 };
 exports.start = function (params) {
 	localParams = params;
 	if (params.simulate) {
-		simulate();
+
+		console.log('simulate: %s, frequency: %d...', localParams.simulate, localParams.frequency);
+
+		// simulate();
 	} else {
 		connectHardware();
 	}
