@@ -1,6 +1,19 @@
-var httpServer = require('./servers/http');
-var resources = require('./resources/model');
+var express = require('express');
+var actuatorsRoutes = require('./../routes/actuators');
+var sensorRoutes = require('./../routes/sensors');
+var resources = require('./../resources/model');
 var dhtPlugin = require('./plugins/internal/DHT22SensorPlugin');
+var cors = require('cors');
+
+var app = express();
+
+app.use(cors());
+app.use('/api/v1/actuators', actuatorsRoutes);
+app.use('/api/v1/sensors', sensorRoutes);
+
+app.get('/api/v1', (req, res) => {
+	res.send('Hop Yat Church Outdoor Display Monitor');
+});
 
 dhtPlugin.start({ 'simulate': true, 'frequeycy': 2000 });
 
