@@ -21,7 +21,7 @@ var server = app.listen(resources.pi.port, () => {
 	console.info('Hop Yat Church Outdoor Display at %s', resources.pi.port);
 });
 
-
+//
 
 /*
 var Gpio = require('onoff').Gpio;
