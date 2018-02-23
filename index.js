@@ -4,6 +4,7 @@ var sensorRoutes = require('./routes/sensors');
 var resources = require('./resources/model');
 var dhtPlugin = require('./plugins/internal/DHT22SensorPlugin');
 var cors = require('cors');
+var converter = require('./middleware/converter');
 
 var app = express();
 
@@ -14,6 +15,8 @@ app.use('/api/v1/sensors', sensorRoutes);
 app.get('/api/v1', (req, res) => {
 	res.send('Hop Yat Church Outdoor Display Monitor');
 });
+
+app.use(converter());
 
 dhtPlugin.start({ 'simulate': false, 'frequency': 2000 });
 
