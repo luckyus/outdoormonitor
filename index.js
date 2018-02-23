@@ -5,10 +5,12 @@ var resources = require('./resources/model');
 var dhtPlugin = require('./plugins/internal/DHT22SensorPlugin');
 var cors = require('cors');
 var converter = require('./middleware/converter');
+var bodyParser = require('body-parser');
 
 var app = express();
 
 app.use(cors());
+app.use(bodyParser.json());
 app.use('/api/v1/actuators', actuatorsRoutes);
 app.use('/api/v1/sensors', sensorRoutes);
 
