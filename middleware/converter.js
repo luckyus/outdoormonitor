@@ -13,6 +13,7 @@ module.exports = function () {
 
         case 'html':
           console.info('HTML representation selected!');
+          // e.g., <div>Temperature Sensor : 20.1</div> (180223)
           var transform = {'tag': 'div', 'html': '${name} : ${value}'};
           res.send(json2html.transform(req.result, transform));
           return;

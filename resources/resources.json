@@ -5,8 +5,8 @@
 		"port": 3000,
 		"sensors": {
 			"temperature": {
-				"description": "An ambient temperature sensor.",
 				"name": "Temperature Sensor",
+				"description": "An ambient temperature sensor.",
 				"unit": "celsius",
 				"value": 0,
 				"gpio": 12
