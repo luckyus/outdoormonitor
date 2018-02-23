@@ -9,7 +9,7 @@ module.exports = function () {
 
     if (req.result) {
 
-      switch (req.accepts(['application/json', 'application/html', 'application/x-msgpack'])) {
+      switch (req.accepts(['json', 'html', 'application/x-msgpack'])) {
 
         case 'html':
           console.info('HTML representation selected!');
