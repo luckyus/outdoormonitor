@@ -21,7 +21,7 @@ function start(params) {
 	}
 }
 
-exports = start;
+module.exports = start;
 
 exports.stop = function () {
 	if (params.simulate) {
