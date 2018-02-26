@@ -26,6 +26,25 @@ var server = app.listen(resources.pi.port, () => {
 	console.info('Hop Yat Church Outdoor Display at %s', resources.pi.port);
 });
 
+var Gpio = onoff.Gpio,
+	led = new Gpio(4, 'out'),
+	interval;
+
+interval = setInterval(() => {
+	var value = (led.readSync() + 1) % 2;
+	led.write(value, (() => {
+		console.log("Changed LED state to: " + value);
+	}));
+}, 100);
+
+process.on('SIGINT', () => {
+	clearInterval(interval);
+	led.writeSync(0); //#G
+	led.unexport();
+	console.log('Bye, bye!');
+	process.exit();
+});
+
 //
 
 /*
