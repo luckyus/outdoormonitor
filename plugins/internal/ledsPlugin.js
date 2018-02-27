@@ -18,7 +18,7 @@ exports.start = function(params) {
         },
         set: function(target, prop, value) {
             console.log({ type: 'set', target, prop, value });
-            return Reflact.set(target, prop, value);
+            return Reflect.set(target, prop, value);
         }
     });
 
