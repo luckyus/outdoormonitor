@@ -66,8 +66,10 @@ function simulate() {
 		// Switch value on a regular basis
 		if (model.value) {
 			model.value = false;
+			proxied.value = false;
 		} else {
 			model.value = true;
+			proxied.value = true;
 		}
 	}, localParams.frequency);
 	console.info('Simulated %s actuator started!', pluginName);

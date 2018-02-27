@@ -16,27 +16,17 @@ app.use('/api/v1/actuators', actuatorsRoutes);
 app.use('/api/v1/sensors', sensorRoutes);
 
 app.get('/api/v1', (req, res) => {
-  res.send('Hop Yat Church Outdoor Display Monitor');
+    res.send('Hop Yat Church Outdoor Display Monitor');
 });
 
 app.use(converter());
 
-dhtPlugin.start({
-  'simulate': false,
-  'frequency': 2000
-});
-
-ledsPlugin.start({
-  'simulate': true,
-  'frequency': 10000
-});
-
+dhtPlugin.start({ 'simulate': false, 'frequency': 2000 });
+ledsPlugin.start({ 'simulate': true, 'frequency': 10000 });
 
 var server = app.listen(resources.pi.port, () => {
-  console.info('Hop Yat Church Outdoor Display at %s', resources.pi.port);
+    console.info('Hop Yat Church Outdoor Display at %s', resources.pi.port);
 });
-
-//
 
 /*
 var Gpio = require('onoff').Gpio;
