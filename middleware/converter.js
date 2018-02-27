@@ -8,8 +8,7 @@ module.exports = function () {
     console.info('Representation converter middleware called!');
 
     if (req.result) {
-
-      switch (req.accepts(['json', 'html', 'application/x-msgpack'])) {
+      switch(req.accepts(['json', 'html', 'application/x-msgpack'])) {
 
         case 'html':
           console.info('HTML representation selected!');
@@ -30,7 +29,8 @@ module.exports = function () {
           return;
       }
     }
-    else {
+    else 
+    {
       next();
     }
   };

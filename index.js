@@ -3,6 +3,7 @@ var actuatorsRoutes = require('./routes/actuators');
 var sensorRoutes = require('./routes/sensors');
 var resources = require('./resources/model');
 var dhtPlugin = require('./plugins/internal/DHT22SensorPlugin');
+var ledsPlugin = require('./plugins/internal/ledsPlugin');
 var cors = require('cors');
 var converter = require('./middleware/converter');
 var bodyParser = require('body-parser');
@@ -15,35 +16,24 @@ app.use('/api/v1/actuators', actuatorsRoutes);
 app.use('/api/v1/sensors', sensorRoutes);
 
 app.get('/api/v1', (req, res) => {
-	res.send('Hop Yat Church Outdoor Display Monitor');
+  res.send('Hop Yat Church Outdoor Display Monitor');
 });
 
 app.use(converter());
 
-dhtPlugin.start({ 'simulate': false, 'frequency': 2000 });
-
-var server = app.listen(resources.pi.port, () => {
-	console.info('Hop Yat Church Outdoor Display at %s', resources.pi.port);
+dhtPlugin.start({
+  'simulate': false,
+  'frequency': 2000
 });
 
-var onoff = require('onoff'); 
-var Gpio = onoff.Gpio,
-	led = new Gpio(4, 'out'),
-	interval;
+ledsPlugin.start({
+  'simulate': true,
+  'frequency': 10000
+});
 
-interval = setInterval(() => {
-	var value = (led.readSync() + 1) % 2;
-	led.write(value, (() => {
-		console.log("Changed LED state to: " + value);
-	}));
-}, 100);
 
-process.on('SIGINT', () => {
-	clearInterval(interval);
-	led.writeSync(0); //#G
-	led.unexport();
-	console.log('Bye, bye!');
-	process.exit();
+var server = app.listen(resources.pi.port, () => {
+  console.info('Hop Yat Church Outdoor Display at %s', resources.pi.port);
 });
 
 //
