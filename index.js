@@ -22,7 +22,7 @@ app.get('/api/v1', (req, res) => {
 app.use(converter());
 
 dhtPlugin.start({ 'simulate': false, 'frequency': 2000 });
-ledsPlugin.start({ 'simulate': true, 'frequency': 2000 });
+ledsPlugin.start({ 'simulate': false, 'frequency': 2000 });
 
 var server = app.listen(resources.pi.port, () => {
     console.info('Hop Yat Church Outdoor Display at %s', resources.pi.port);
