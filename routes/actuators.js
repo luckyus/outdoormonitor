@@ -15,6 +15,7 @@ router.route('/leds').get(function (req, res, next) {
 
 router.route('/leds/:id').get(function (req, res, next) {
 	req.result = resources.pi.actuators.leds[req.params.id];
+	console.log(req.result);
 	next();
 }).put(function (req, res, next) {
 	var selectedLed = resources.pi.actuators.leds[req.params.id];
