@@ -15,13 +15,13 @@ router.route('/leds').get(function (req, res, next) {
 
 router.route('/leds/:id').get(function (req, res, next) {
 	req.result = resources.pi.actuators.leds[req.params.id];
-	console.log('get: ' + req.result);
+	console.log('get: ' + JSON.stringify(req.result));
 	next();
 }).put(function (req, res, next) {
 	var selectedLed = resources.pi.actuators.leds[req.params.id];
 	selectedLed.value = req.body.value;
 	req.result = selectedLed;
-	console.log('put: ' + req.result);
+	console.log('put: ' + JSON.stringify(req.result));
 	next();
 });
 
