@@ -2,7 +2,7 @@ var resources = require('./../../resources/model.js');
 var model = resources.temperature;
 
 var Gpio = require('onoff').Gpio;
-var actuator = new Gpio(proxy.gpio, 'out');
+var actuator = new Gpio(model.gpio, 'out');
 
 var interval;
 
