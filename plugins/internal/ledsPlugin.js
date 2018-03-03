@@ -1,7 +1,10 @@
 var resources = require('./../../resources/model.js');
 var model = resources.temperature;
 
-var actuator, interval;
+var Gpio = require('onoff').Gpio;
+var actuator = new Gpio(proxy.gpio, 'out');
+
+var interval;
 
 var pluginName = model.name;
 var localParams = { 'simulate': false, 'frequency': 2000 };
@@ -22,8 +25,6 @@ exports.start = function(params) {
 		}, localParams.frequency);
 		console.info('Simulated %s actuator started!', pluginName);
 	} else {
-		var Gpio = require('onoff').Gpio;
-		actuator = new Gpio(proxy.gpio, 'out');
 		console.info('Hardware %s actuator started!', pluginName);
 	}
 };
