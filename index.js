@@ -28,7 +28,7 @@ app.use(converter());
 dhtPlugin.start({ 'simulate': false, 'frequency': 2000 });
 ledsPlugin.start({ 'simulate': true, 'frequency': 5000 });
 
-var server = app.listen(resources.pi.port, () => {
+var server = app.listen(resources.port, () => {
 	console.info('Hop Yat Church Outdoor Display at %s', resources.port);
 });
 
