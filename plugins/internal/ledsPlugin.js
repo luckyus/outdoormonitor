@@ -15,13 +15,17 @@ exports.start = function(params) {
 	if (localParams.simulate) {
 		interval = setInterval(function() {
 			if (model.value) {
+				console.log('model.value changed fm true to false!');
 				model.value = false;
 			} else {
+				console.log('model.value changed fm false to true!');
 				model.value = true;
 			}
+			/*
 			actuator.write(model.value === true ? 1 : 0, function() {
 				console.info('Changed value of %s to %s', pluginName, model.value);
 			});
+			*/
 		}, localParams.frequency);
 		console.info('Simulated %s actuator started!', pluginName);
 	} else {
