@@ -17,15 +17,14 @@ exports.start = function(params) {
 			if (model.value === true) {
 				console.log('model.value changed fm true to false!');
 				model.value = false;
-
-				if (model.value === true) console.log('now it is true!');
-				else console.log('now it is false!');
-
-
 			} else {
 				console.log('model.value changed fm false to true!');
 				model.value = true;
 			}
+
+			if (model.value === true) console.log('now it is true!');
+			else console.log('now it is false!');
+
 			/*
 			actuator.write(model.value === true ? 1 : 0, function() {
 				console.info('Changed value of %s to %s', pluginName, model.value);
