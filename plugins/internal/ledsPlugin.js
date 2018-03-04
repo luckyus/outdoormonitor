@@ -14,7 +14,7 @@ exports.start = function(params) {
 	// observe(model);
 	if (localParams.simulate) {
 		interval = setInterval(function() {
-			if (model.value) {
+			if (model.value === true) {
 				console.log('model.value changed fm true to false!');
 				model.value = false;
 			} else {

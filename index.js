@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 app.use(converter());
 
 dhtPlugin.start({ 'simulate': false, 'frequency': 2000 });
-ledsPlugin.start({ 'simulate': true, 'frequency': 5000 });
+ledsPlugin.start({ 'simulate': true, 'frequency': 3000 });
 
 var server = app.listen(resources.port, () => {
 	console.info('Hop Yat Church Outdoor Display at %s', resources.port);
