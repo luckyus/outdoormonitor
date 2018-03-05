@@ -14,6 +14,18 @@ var dummy = true;
 exports.start = function(params) {
 	localParams = params;
 	// observe(model);
+
+	console.log(`model.name: ${model.name}`);
+
+	console.log(`existing model.value: ${model.value}`);
+	model.value = true;
+	console.log(`true -> model.value: ${model.value}`);
+	model.value = false;
+	console.log(`false -> model.value: ${model.value}`);
+	
+	
+
+
 	if (localParams.simulate) {
 		interval = setInterval(function() {
 			if (dummy === true) {
