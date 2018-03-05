@@ -1,5 +1,5 @@
 var resources = require('./../../resources/model.js');
-var model = resources.temperature;
+var model = resources.led;
 
 var Gpio = require('onoff').Gpio;
 var actuator = new Gpio(model.gpio, 'out');
@@ -8,8 +8,6 @@ var interval;
 
 var pluginName = model.name;
 var localParams = { 'simulate': false, 'frequency': 2000 };
-
-var dummy = true;
 
 exports.start = function(params) {
 	localParams = params;
@@ -29,15 +27,15 @@ exports.start = function(params) {
 
 	if (localParams.simulate) {
 		interval = setInterval(function() {
-			if (dummy === true) {
-				console.log('dummy changed fm true to false!');
-				dummy = false;
+			if (model.value === true) {
+				console.log('model.value changed fm true to false!');
+				model.value = false;
 			} else {
-				console.log('dummy changed fm false to true!');
-				dummy = true;
+				console.log('model.value changed fm false to true!');
+				model.value = true;
 			}
 
-			if (dummy === true) console.log('now it is true!');
+			if (model.value === true) console.log('now it is true!');
 			else console.log('now it is false!');
 
 			/*
