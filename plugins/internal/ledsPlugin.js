@@ -21,11 +21,8 @@ exports.start = function(params) {
 				model.value = true;
 			}
 
-			if (model.value === true) console.log('now it is true!');
-			else console.log('now it is false!');
-
 			actuator.write(model.value === true ? 1 : 0, function() {
-				console.info('Changed value of %s to %s', pluginName, model.value);
+				// console.info('Changed value of %s to %s', pluginName, model.value);
 			});
 		}, localParams.frequency);
 		console.info('Simulated %s actuator started!', pluginName);

@@ -4,7 +4,7 @@ var router = express.Router();
 var resources = require('./../resources/model');
 var ledsPlugin = require('./../plugins/internal/ledsPlugin');
 
-const handler = {
+var proxy =  new Proxy(resources, {
 	get(target, key) {
 		const v = target[key];
 		return typeof v == "object" ? new Proxy(v, handler) : v;
@@ -18,9 +18,7 @@ const handler = {
 		}
 		return Reflect.set(target, key, value);
 	},
-};
-
-var proxy =  new Proxy(resources, handler);
+});
 
 router.route('/led').get(function(req, res, next) {
     req.result = resources.led;
