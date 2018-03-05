@@ -9,20 +9,22 @@ var interval;
 var pluginName = model.name;
 var localParams = { 'simulate': false, 'frequency': 2000 };
 
+var dummy = true;
+
 exports.start = function(params) {
 	localParams = params;
 	// observe(model);
 	if (localParams.simulate) {
 		interval = setInterval(function() {
-			if (model.value === true) {
-				console.log('model.value changed fm true to false!');
-				model.value = false;
+			if (dummy === true) {
+				console.log('dummy changed fm true to false!');
+				dummy = false;
 			} else {
-				console.log('model.value changed fm false to true!');
-				model.value = true;
+				console.log('dummy changed fm false to true!');
+				dummy = true;
 			}
 
-			if (model.value === true) console.log('now it is true!');
+			if (dummy === true) console.log('now it is true!');
 			else console.log('now it is false!');
 
 			/*
