@@ -13,36 +13,20 @@ exports.start = function(params) {
 	localParams = params;
 	// observe(model);
 
-	console.log(`localParams.simulate: ${localParams.simulate}`);
-	console.log(`model.name: ${model.name}`);
-
-	console.log(`existing model.value: ${model.value}`);
-	model.value = true;
-	console.log(`true -> model.value: ${model.value}`);
-	model.value = false;
-	console.log(`false -> model.value: ${model.value}`);
-	
-	
-
-
 	if (localParams.simulate) {
 		interval = setInterval(function() {
 			if (model.value === true) {
-				console.log('model.value changed fm true to false!');
 				model.value = false;
 			} else {
-				console.log('model.value changed fm false to true!');
 				model.value = true;
 			}
 
 			if (model.value === true) console.log('now it is true!');
 			else console.log('now it is false!');
 
-			/*
 			actuator.write(model.value === true ? 1 : 0, function() {
 				console.info('Changed value of %s to %s', pluginName, model.value);
 			});
-			*/
 		}, localParams.frequency);
 		console.info('Simulated %s actuator started!', pluginName);
 	} else {
