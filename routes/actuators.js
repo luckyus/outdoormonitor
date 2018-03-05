@@ -4,7 +4,7 @@ var router = express.Router();
 var resources = require('./../resources/model');
 var ledsPlugin = require('./../plugins/internal/ledsPlugin');
 
-var proxy =  new Proxy(resources, {
+const handler = {
 	get(target, key) {
 		const v = target[key];
 		return typeof v == "object" ? new Proxy(v, handler) : v;
@@ -13,12 +13,14 @@ var proxy =  new Proxy(resources, {
 		console.log(target);
 		console.log(key);
 		console.log(value);
-		if (target.name === 'temperature' && key === 'value') {
+		if (target.name === 'led' && key === 'value') {
 			ledsPlugin.switchOnOff(value);
 		}
 		return Reflect.set(target, key, value);
 	},
-});
+};
+
+var proxy =  new Proxy(resources, handler);
 
 router.route('/led').get(function(req, res, next) {
     req.result = resources.led;
