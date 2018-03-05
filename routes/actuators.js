@@ -26,11 +26,13 @@ router.route('/led').get(function(req, res, next) {
 	console.log('get: ' + JSON.stringify(req.result));
 	next();
 }).put(function(req, res, next) {
-	if (req.body.value != undefined) {
+	if (req.body.value != undefined && typeof req.body.value == 'boolean') {
 		// var selectedLed = proxy.led;
 		var selectedLed = resources.led;
 		selectedLed.value = req.body.value;
 		req.result = selectedLed;
+
+		ledsPlugin.switchOnOff(req.body.value);
 
 		console.log(`typeof req.body.value: ${typeof req.body.value}`);
 		console.log('put: ' + JSON.stringify(req.result));
