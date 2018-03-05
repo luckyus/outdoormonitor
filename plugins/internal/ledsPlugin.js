@@ -15,6 +15,7 @@ exports.start = function(params) {
 	localParams = params;
 	// observe(model);
 
+	console.log(`localParams.simulate: ${localParams.simulate}`);
 	console.log(`model.name: ${model.name}`);
 
 	console.log(`existing model.value: ${model.value}`);
