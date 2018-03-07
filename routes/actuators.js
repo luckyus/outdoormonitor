@@ -34,7 +34,6 @@ router.route('/led').get(function(req, res, next) {
 
 		ledsPlugin.switchOnOff(req.body.value);
 
-		console.log(`typeof req.body.value: ${typeof req.body.value}`);
 		console.log('put: ' + JSON.stringify(req.result));
 	}
 	next();
