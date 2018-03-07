@@ -10,7 +10,7 @@ exports.listen = function(server) {
 		try {
 			Object.observe(selectResouce(url), function(changes) { //#C
 				ws.send(JSON.stringify(changes[0].object), function() {});
-			})
+			});
 		} catch (e) { //#D
 			console.log('Unable to observe %s resource!', url);
 		}

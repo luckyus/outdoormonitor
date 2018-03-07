@@ -12,6 +12,7 @@
 		"jshint": "^2.9.5",
 		"msgpack5": "^4.0.1",
 		"node-json2html": "^1.2.0",
+		"onoff": "^2.0.0",
 		"ws": "^4.1.0"
 	},
 	"optionalDependencies": {
