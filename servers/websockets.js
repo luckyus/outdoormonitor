@@ -10,15 +10,20 @@ exports.listen = function(server) {
 	};
 
 	wss.on('connection', function(ws, req) { //#B
-
-		console.log(req.url);
-
-		var url = ws.upgradeReq.url;
+		var url = req.url;
 		console.info(url);
+
+		var interval;
+
 		try {
+			interval = setInterval(function() {
+				ws.send(JSON.stringify({ 'name': 'brian leung' }), function() {});
+			}, 2000);
+			/*
 			Object.observe(selectResouce(url), function(changes) { //#C
 				ws.send(JSON.stringify(changes[0].object), function() {});
 			});
+			*/
 		} catch (e) { //#D
 			console.log('Unable to observe %s resource!', url);
 		}
