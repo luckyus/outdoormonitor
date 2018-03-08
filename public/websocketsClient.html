@@ -2,7 +2,7 @@
 <html lang="en">
 	<div>
 		<span>Temperature: </span>
-		<span id='temperature'></span>
+		<span id='temperature'>---</span>
 	</div>
 
 <body>
@@ -12,8 +12,9 @@
 			var temp = document.getElementById('temperature');
 
 			socket.onmessage = function(event) {
-				temp.innerHTML = event.data.value;
-				console.log(event.data);
+				var result = JSON.parse(event.data);
+				temp.innerHTML = result.value;
+				console.log(JSON.parse(event.data));
 			};
 			socket.onerror = function(error) {
 				console.log('An error occurred while trying to connect to a Websocket!');
