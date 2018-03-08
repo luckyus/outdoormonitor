@@ -10,7 +10,7 @@ router.route('/').get((req, res, next) => {
 
 router.route('/temperature').get((req, res, next) => {
 	// res.send(resources.pi.sensors.temperature);
-	req.result = resources.pi.sensors.temperature;
+	req.result = resources.pi.temperature;
 	next();
 });
 
