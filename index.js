@@ -7,7 +7,7 @@ var ledsPlugin = require('./plugins/internal/ledsPlugin');
 var cors = require('cors');
 var converter = require('./middleware/converter');
 var bodyParser = require('body-parser');
-var wsServer = require('/servers/websockets');
+var wsServer = require('./servers/websockets');
 
 var app = express();
 
