@@ -17,7 +17,7 @@ exports.listen = function(server) {
 
 		try {
 			interval = setInterval(function() {
-				ws.send(JSON.stringify(resources.temperature), function() {});
+				ws.send(resources.temperature, function() {});
 			}, 2000);
 			/*
 			Object.observe(selectResouce(url), function(changes) { //#C
