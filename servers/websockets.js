@@ -18,8 +18,8 @@ exports.listen = function(server) {
 
 		try {
 			interval = setInterval(function() {
-				if (currentValue != resources.temperature) {
-					currentValue = resources.temperature;
+				if (currentValue != resources.temperature.value) {
+					currentValue = resources.temperature.value;
 					console.log('ws sending currentValue: ' + currentValue);
 					ws.send(JSON.stringify(resources.temperature), function() {});
 				}
