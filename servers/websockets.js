@@ -9,8 +9,10 @@ exports.listen = function(server) {
 		console.log(req.url);
 	};
 
-	/*
-	wss.on('connection', function(ws) { //#B
+	wss.on('connection', function(ws, req) { //#B
+
+		console.log(req.url);
+
 		var url = ws.upgradeReq.url;
 		console.info(url);
 		try {
@@ -21,7 +23,6 @@ exports.listen = function(server) {
 			console.log('Unable to observe %s resource!', url);
 		}
 	});
-	*/
 };
 
 function selectResouce(url) { //#E
