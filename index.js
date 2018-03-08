@@ -8,6 +8,7 @@ var cors = require('cors');
 var converter = require('./middleware/converter');
 var bodyParser = require('body-parser');
 var wsServer = require('./servers/websockets');
+var path = require('path');
 
 var app = express();
 
