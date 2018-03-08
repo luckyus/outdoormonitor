@@ -7,6 +7,7 @@ var ledsPlugin = require('./plugins/internal/ledsPlugin');
 var cors = require('cors');
 var converter = require('./middleware/converter');
 var bodyParser = require('body-parser');
+var wsServer = require('/servers/websockets');
 
 var app = express();
 
@@ -29,6 +30,7 @@ dhtPlugin.start({ 'simulate': false, 'frequency': 2000 });
 ledsPlugin.start({ 'simulate': false, 'frequency': 3000 });
 
 var server = app.listen(resources.port, () => {
+	wsServer.listen(server);
 	console.info('Hop Yat Church Outdoor Display at %s', resources.port);
 });
 
