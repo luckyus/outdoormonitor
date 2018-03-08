@@ -16,6 +16,8 @@ app.use(bodyParser.json());
 app.use('/api/v1/actuators', actuatorsRoutes);
 app.use('/api/v1/sensors', sensorRoutes);
 
+app.use('/public', express.static(path.resolve(__dirname, 'public')));
+
 app.get('/api/v1', (req, res) => {
 	res.send(resources);
 });

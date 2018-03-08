@@ -19,7 +19,7 @@ exports.start = function(params) {
 	} else {
 		connectHardware();
 	}
-}
+};
 
 exports.stop = function() {
 	if (params.simulate) {
