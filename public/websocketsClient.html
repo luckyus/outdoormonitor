@@ -1,9 +1,17 @@
 <!DOCTYPE html>
+
+<style>
+	.c1 {
+		font-size: 30px;
+		font-weight: bold;
+	}
+</style>
+
 <html lang="en">
-	<div>
-		<span>Temperature: </span>
-		<span id='temperature'>---</span>
-	</div>
+<div class='c1'>
+	<span>Temperature: </span>
+	<span id='temperature'>---</span>
+</div>
 
 <body>
 	<script>
@@ -14,7 +22,6 @@
 			socket.onmessage = function(event) {
 				var result = JSON.parse(event.data);
 				temp.innerHTML = result.value;
-				console.log(JSON.parse(event.data));
 			};
 			socket.onerror = function(error) {
 				console.log('An error occurred while trying to connect to a Websocket!');
