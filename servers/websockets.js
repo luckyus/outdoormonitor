@@ -4,6 +4,12 @@ var resources = require('./../resources/model');
 exports.listen = function(server) {
 	var wss = new WebSocketServer({ server: server }); //#A
 	console.info('WebSocket server started...');
+
+	wss.onWebSocketOpen = function onWebSocketOpen(ws, req) {
+		console.log(req.url);
+	};
+
+	/*
 	wss.on('connection', function(ws) { //#B
 		var url = ws.upgradeReq.url;
 		console.info(url);
@@ -15,6 +21,7 @@ exports.listen = function(server) {
 			console.log('Unable to observe %s resource!', url);
 		}
 	});
+	*/
 };
 
 function selectResouce(url) { //#E
