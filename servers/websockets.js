@@ -2,35 +2,34 @@ var WebSocketServer = require('ws').Server;
 var resources = require('./../resources/model');
 
 exports.listen = function(server) {
-	var wss = new WebSocketServer({ server: server }); //#A
+	var wss = new WebSocketServer({ server: server });
 	console.info('WebSocket server started...');
 
 	wss.onWebSocketOpen = function onWebSocketOpen(ws, req) {
 		console.log(req.url);
 	};
 
-	wss.on('connection', function(ws, req) { //#B
+	wss.on('connection', function(ws, req) {
 		var url = req.url;
 		console.info(url);
 
 		var interval;
+		var currentValue = 0;
 
 		try {
 			interval = setInterval(function() {
-				ws.send(JSON.stringify(resources.temperature), function() {});
+				if (currentValue != resources.temperature) {
+					currentValue = resources.temperature;
+					ws.send(JSON.stringify(resources.temperature), function() {});
+				}
 			}, 2000);
-			/*
-			Object.observe(selectResouce(url), function(changes) { //#C
-				ws.send(JSON.stringify(changes[0].object), function() {});
-			});
-			*/
-		} catch (e) { //#D
+		} catch (e) {
 			console.log('Unable to observe %s resource!', url);
 		}
 	});
 };
 
-function selectResouce(url) { //#E
+function selectResouce(url) {
 	var parts = url.split('/');
 	parts.shift();
 	var result = resources;
@@ -39,10 +38,3 @@ function selectResouce(url) { //#E
 	}
 	return result;
 }
-
-
-//#A Create a WebSockets server by passing it the Express server
-//#B Triggered after a protocol upgrade when the client connected
-//#C Register an observer corresponding to the resource in the protocol upgrade URL
-//#D Use a try/catch to catch to intercept errors (e.g., malformed/unsupported URLs)
-//#E This function takes a request URL and returns the corresponding resource
